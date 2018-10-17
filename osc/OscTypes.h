@@ -109,6 +109,13 @@ inline bool IsMultipleOf4( osc_bundle_element_size_t x )
     return (x & ((osc_bundle_element_size_t)0x03)) == 0;
 }
 
+    
+// round up to the next highest multiple of 4. unless x is already a multiple of 4
+static inline std::size_t RoundUp4( std::size_t x )
+{
+    return (x + 3) & ~((std::size_t)0x03);
+}
+
 
 enum TypeTagValues {
     TRUE_TYPE_TAG = 'T',
