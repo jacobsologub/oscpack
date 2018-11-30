@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jacob Sologub. All rights reserved.
 //
 
+#include <cstddef>
 #include "osc/OscTypes.cpp"
 #include "osc/OscOutboundPacketStream.cpp"
 #include "osc/OscReceivedElements.cpp"
