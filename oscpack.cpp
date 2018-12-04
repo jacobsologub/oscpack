@@ -11,6 +11,13 @@
 #include "osc/OscOutboundPacketStream.cpp"
 #include "osc/OscReceivedElements.cpp"
 #include "osc/OscPrintReceivedElements.cpp"
-#include "ip/posix/UdpSocket.cpp"
 #include "ip/IpEndpointName.cpp"
-#include "ip/posix/NetworkingUtils.cpp"
+#if defined (_WIN32) || defined (_WIN64)
+ #include "ip/win32/UdpSocket.cpp"
+ #include "ip/win32/NetworkingUtils.cpp"
+#elif defined (__APPLE__) || defined (__linux__)
+ #include "ip/posix/UdpSocket.cpp"
+ #include "ip/posix/NetworkingUtils.cpp"
+#else
+ #error "Unknown platform!"
+#endif
